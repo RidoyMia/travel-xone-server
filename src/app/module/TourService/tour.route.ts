@@ -1,0 +1,11 @@
+import express from "express";
+import tourController from "./tour.controller";
+const tourRoute = express.Router();
+
+
+tourRoute.post('/create',tourController.CreateTourController);
+tourRoute.get('/alltour',tourController.getAllTourController)
+tourRoute.get('/country/:country',tourController.getTourByCountryController);
+tourRoute.get('/:id',tourController.getSingleTourByIdController)
+
+export default tourRoute;
