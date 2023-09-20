@@ -1,6 +1,7 @@
 import express,{Request,Response} from "express"
 import { Tourservice } from "./tour.interface";
 import tourService from "./tour.service";
+import { TourModel } from "./tour.model";
 
 const CreateTourController = async(req:Request,res: Response) : Promise<Tourservice | any > =>{
     try{
@@ -78,10 +79,12 @@ const getSingleTourByIdController = async(req:Request,res: Response) : Promise<T
 
 
 const getAllTourController = async(req:Request,res: Response) : Promise<Tourservice | any > =>{
+  
     try{
         const queryField = req.query;
         
         const result = await tourService.getAllTourService(queryField);
+        console.log(result)
         
       
       

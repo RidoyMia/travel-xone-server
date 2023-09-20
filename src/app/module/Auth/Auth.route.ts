@@ -4,6 +4,7 @@ const UserRoute = express.Router()
 
 
 UserRoute.post('/createUser',usercontoller.createUserController);
-UserRoute.get('/getUser',usercontoller.GetuserController)
+UserRoute.post('/login',usercontoller.loginUserController);
+// UserRoute.get('/getUser',usercontoller.GetuserController)
 
 export default UserRoute;

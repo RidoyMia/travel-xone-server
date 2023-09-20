@@ -7,6 +7,7 @@ const CreateTourService = async(tour : Tourservice) : Promise<Tourservice | any>
 }
 
 const getTourByCountryService = async(country: any) : Promise<Tourservice | any> =>{
+    console.log(country)
     const result = await TourModel.find({Country : country});
     return result
 }
@@ -53,6 +54,8 @@ const getAllTourService = async(queryField : any) : Promise<Tourservice | any> =
             result
         }
     }
+
+   
 
 }
 

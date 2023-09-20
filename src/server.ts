@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
 import app from "./app";
+import config from "./config";
 
 async function bootstrap(){
 try{
-    await mongoose.connect("mongodb+srv://travelxone:travelxone@cluster0.ddsoyqm.mongodb.net/travel-xone?retryWrites=true&w=majority");
+    await mongoose.connect(config.database as string);
        app.listen(4000, () => {
        console.log(`Example app listening on port 4000`)
   })
