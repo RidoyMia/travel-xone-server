@@ -21,8 +21,29 @@ const createOrderController = async(req: Request,res:Response) : Promise<Iorder 
               })
        }
 }
+const getOrderController = async(req: Request,res:Response) : Promise<Iorder | any> =>{
+  // try{
+     const accesstoken = req.headers;
+     console.log(accesstoken)
+     
+    // const result = await OrderService.createOrderService(orderdata)
+    //   console.log(result)
+    //   res.status(200).send({
+    //       getting : true,
+    //         message : 'successfully created data',
+    //         data : result,
+//       })
+//      }catch(e){
+//          res.status(400).send({
+//              getting : e,
+//              message : 'Something went wrong',
+//              data : false
+//             })
+//      }
+}
 
 
 export default {
-    createOrderController
+    createOrderController,
+    getOrderController
 }
