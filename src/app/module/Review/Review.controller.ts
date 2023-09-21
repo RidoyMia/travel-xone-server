@@ -20,7 +20,7 @@ const createReviewController = async(req:Request,res : Response) : Promise<Irevi
    
        }catch(e){
            res.status(400).send({
-               getting : e.message,
+               getting : e,
                message : 'Something went wrong',
                data : false
               })
