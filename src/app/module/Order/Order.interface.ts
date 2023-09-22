@@ -7,7 +7,7 @@ export interface Iorder  {
    name: string,
    email : string,
    phone :string,
-   date : string,
+   date : Date,
    note : string,
    size : string,
    total : number

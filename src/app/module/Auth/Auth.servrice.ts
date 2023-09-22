@@ -41,7 +41,18 @@ const loginUserService = async(payload:any) =>{
        }
      }
    }
-    
+   const getAdminService = async(email : any) =>{
+    const result = await Usermodel.find({email : email});
+     return result;
+   }
+   const getAlluser = async()=>{
+    const result = await Usermodel.find({});
+    return result;
+   }
+    const deleteUserController = async(payload : any)=>{
+      const result = await Usermodel.deleteOne({email:payload});
+      return result
+    }
  
 
 
@@ -50,5 +61,8 @@ const loginUserService = async(payload:any) =>{
 export default  {
     CreateUserService,
     GetUserService,
-    loginUserService
+    loginUserService,
+    getAdminService,
+    getAlluser,
+    deleteUserController
 }

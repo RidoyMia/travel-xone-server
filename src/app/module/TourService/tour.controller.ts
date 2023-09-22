@@ -84,7 +84,7 @@ const getAllTourController = async(req:Request,res: Response) : Promise<Tourserv
         const queryField = req.query;
         
         const result = await tourService.getAllTourService(queryField);
-        console.log(result)
+       
         
       
       

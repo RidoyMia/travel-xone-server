@@ -16,7 +16,7 @@ const orderSchema = new Schema<Iorder>({
         required : true
     },
     date : {
-        type : String,
+        type : Date,
         required : true
     },
     total : {

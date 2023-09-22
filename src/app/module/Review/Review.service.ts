@@ -4,7 +4,7 @@ import { ReviewModel } from "./Review.model";
 
 const createReviewService = async(payload : Ireview) : Promise<Ireview | any> => {
     const result = await ReviewModel.create(payload);
-    console.log(result)
+    
     return result;
     
 }
@@ -17,7 +17,7 @@ const getReviewByTourIdService = async(payload : any) : Promise<Ireview | any> =
 
 const getAllReviewService = async() : Promise<Ireview | any> =>{
     const result = await ReviewModel.find({});
-    console.log(result,'get')
+    
     return result;
 }
 

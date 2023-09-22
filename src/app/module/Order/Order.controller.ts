@@ -5,9 +5,9 @@ import OrderService from "./Order.service";
 const createOrderController = async(req: Request,res:Response) : Promise<Iorder | any> =>{
     try{
        const orderdata = req.body
-        console.log(orderdata,'orderData')
+       console.log(orderdata,'createOrder')
       const result = await OrderService.createOrderService(orderdata)
-        console.log(result)
+       
         res.status(200).send({
             getting : true,
               message : 'successfully created data',
@@ -21,6 +21,10 @@ const createOrderController = async(req: Request,res:Response) : Promise<Iorder 
               })
        }
 }
+const getByGroup = async(req: Request,res:Response) => {
+    const result = await OrderService.getGroup();
+    res.send({result})
+} 
 const getOrderController = async(req: Request,res:Response) : Promise<Iorder | any> =>{
   try{
      const accesstoken = req?.headers?.authorization?.split(" ")[1];
@@ -45,5 +49,6 @@ const getOrderController = async(req: Request,res:Response) : Promise<Iorder | a
 
 export default {
     createOrderController,
-    getOrderController
+    getOrderController,
+    getByGroup
 }

@@ -4,11 +4,12 @@ import ReviewService from "./Review.service";
 
 const createReviewController = async(req:Request,res : Response) : Promise<Ireview | any> => {
     try{
-        console.log(req.body)
+      
         const review = req.body;
+        console.log(review,"review")
         const result = await ReviewService.createReviewService(review);
       
-      console.log(result)
+  
            
            res.status(200).send({
               getting : true,
@@ -31,10 +32,10 @@ const createReviewController = async(req:Request,res : Response) : Promise<Irevi
 const getSingleReviewByTourIdController = async(req:Request,res : Response) : Promise<Ireview | any> => {
     try{
         const tourId = req.params.id;
-        console.log(tourId)
+      
         const result = await ReviewService.getReviewByTourIdService(tourId);
       
-         console.log(result)
+        
            
            res.status(200).send({
               getting : true,

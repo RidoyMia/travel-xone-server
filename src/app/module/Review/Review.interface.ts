@@ -2,6 +2,6 @@
 export type Ireview = {
  name : string,
  email: string,
- TourId : string,
+ PlaceId : string,
  message : string
 }
