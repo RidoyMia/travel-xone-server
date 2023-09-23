@@ -106,13 +106,43 @@ const getAllTourController = async(req:Request,res: Response) : Promise<Tourserv
               })
        }
 }
+const updateController = async(req:Request,res:Response) =>{
+    try{
+        const queryField = req.params.id;
+        const updatedData = req.body;
+        console.log(updatedData,'ami')
+        
+        const result = await tourService.updateTourService(queryField,updatedData);
+       
+        
+      
+      
+           
+           res.status(200).send({
+              getting : true,
+              message : 'successfully created data',
+              data : result
+              
+             })
+      
+       
+   
+       }catch(e){
+           res.status(400).send({
+               getting : false,
+               message : 'Something went wrong',
+               data : false
+              })
+       }
+}
 
 
 export default {
     CreateTourController,
     getTourByCountryController,
     getAllTourController,
-    getSingleTourByIdController
+    getSingleTourByIdController,
+    updateController
 
 
 }

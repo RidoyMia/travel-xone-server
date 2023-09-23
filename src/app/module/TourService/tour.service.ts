@@ -58,12 +58,20 @@ const getAllTourService = async(queryField : any) : Promise<Tourservice | any> =
    
 
 }
+const updateTourService = async(queiryId : any,updatedData:any)  =>{
+    console.log(updatedData,'updated')
+    const resutl = await TourModel.updateOne( { _id: queiryId }, 
+        updatedData, 
+    { new: true });
+    return resutl;
+}
 
 export default {
     CreateTourService,
     getTourByCountryService,
     getSingleTourById,
-    getAllTourService
+    getAllTourService,
+    updateTourService
 
 
 }

@@ -5,6 +5,7 @@ const tourRoute = express.Router();
 
 tourRoute.post('/create',tourController.CreateTourController);
 tourRoute.get('/alltour',tourController.getAllTourController)
+tourRoute.post('/update/:id',tourController.updateController)
 tourRoute.get('/country/:country',tourController.getTourByCountryController);
 tourRoute.get('/:id',tourController.getSingleTourByIdController)
 
