@@ -37,20 +37,21 @@ const getAllTourService = async(queryField : any) : Promise<Tourservice | any> =
         
     
        
-        
+        const totalDocument = await TourModel.find({})
         const Something = await TourModel.find({$and : andconditions}).sort({CreatedAt : -1}).skip(totalSkip);
         const result = Something.slice(0,10)
       
         return {
-            totalDocument : Something.length,
+            totalDocuments : totalDocument.length ,
             result
         }
     }
     else{
+        const totalDocument = await TourModel.find({})
         const Something = await TourModel.find({}).sort({CreatedAt : -1}).skip(totalSkip);
         const result = Something.slice(0,10)
         return {
-            totalDocument : Something.length,
+            totalDocuments : totalDocument.length,
             result
         }
     }
@@ -65,13 +66,18 @@ const updateTourService = async(queiryId : any,updatedData:any)  =>{
     { new: true });
     return resutl;
 }
+const deletedService = async(id : String) =>{
+    const result = await TourModel.deleteOne({_id :id})
+    return result
+}
 
 export default {
     CreateTourService,
     getTourByCountryService,
     getSingleTourById,
     getAllTourService,
-    updateTourService
+    updateTourService,
+    deletedService
 
 
 }

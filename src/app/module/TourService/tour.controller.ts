@@ -135,6 +135,35 @@ const updateController = async(req:Request,res:Response) =>{
               })
        }
 }
+const deleteController = async(req:Request,res:Response)=>{
+    try{
+    
+        const deletedId = req.body;
+        const result= await tourService.deletedService(deletedId?._id)
+        console.log(deletedId)
+       
+       
+        
+      
+      
+           
+           res.status(200).send({
+              getting : true,
+              message : 'successfully created data',
+              data : result
+              
+             })
+      
+       
+   
+       }catch(e){
+           res.status(400).send({
+               getting : false,
+               message : 'Something went wrong',
+               data : false
+              })
+       }
+}
 
 
 export default {
@@ -142,7 +171,8 @@ export default {
     getTourByCountryController,
     getAllTourController,
     getSingleTourByIdController,
-    updateController
+    updateController,
+    deleteController
 
 
 }
